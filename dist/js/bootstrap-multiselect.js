@@ -42,17 +42,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 (function (root, factory) {
-    // check to see if 'knockout' AMD module is specified if using requirejs
-    if (typeof define === 'function' && define.amd &&
-        typeof require === 'function' && typeof require.specified === 'function' && require.specified('knockout')) {
-
-        // AMD. Register as an anonymous module.
-        define(['jquery', 'knockout'], factory);
-    } else {
-        // Browser globals
-        factory(root.jQuery, root.ko);
-    }
-})(this, function ($, ko) {
+    factory(root.jQuery, root.ko);
+})(window, function ($, ko) {
     "use strict";// jshint ;_;
 
     if (typeof ko !== 'undefined' && ko.bindingHandlers && !ko.bindingHandlers.multiselect) {
